@@ -149,6 +149,11 @@ public class Serial
     public static void main ( String[] args ){
         Serial test;
         int i;
+        
+       // GUI g = new GUI();
+        
+        GUI.main001(null);
+        /*
         try {
             test = new Serial();
             Arrays.fill( buffer_out, (byte) '0' );
@@ -167,5 +172,6 @@ public class Serial
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        */
     }
 }

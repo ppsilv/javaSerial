@@ -10,7 +10,7 @@
  */
 
 package serial;
-/*
+
 import java.awt.Color;
 
 public class GUI extends javax.swing.JFrame {
@@ -70,15 +70,15 @@ public class GUI extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         txtLog = new javax.swing.JTextArea();
 
-        jTextArea1.setColumns(20);
+        jTextArea1.setColumns(30);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Tiger Tank Control Panel");
+        setTitle("EASY - EISSUER transactions handle");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14));
-        jLabel1.setText("Tiger Tank Control Panel");
+        jLabel1.setText("EISSUER...");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel2.setText("Throttle");
@@ -218,7 +218,7 @@ public class GUI extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel13)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap())
                 );
                 layout.setVerticalGroup(
@@ -276,8 +276,8 @@ public class GUI extends javax.swing.JFrame {
                                         .addComponent(jLabel10)))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
-
-                pack();
+                setSize(1080, 400);
+               // pack();
             }// </editor-fold>//GEN-END:initComponents
 
     private void btnLeftAccelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeftAccelActionPerformed
@@ -315,7 +315,8 @@ public class GUI extends javax.swing.JFrame {
         communicator.disconnect();
     }//GEN-LAST:event_btnDisconnectActionPerformed
     
-    public static void main(String args[]) {
+//    public static void main(String args[]) {
+    public static void main001(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new GUI().setVisible(true);
@@ -352,4 +353,3 @@ public class GUI extends javax.swing.JFrame {
     public javax.swing.JTextArea txtLog;
     // End of variables declaration//GEN-END:variables
 }
-*/
