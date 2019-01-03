@@ -20,11 +20,18 @@ public class Serial
 {
     OutputStream out;
     SerialReader input;
+    CommPort commPort;
+    static String buffer_string= new String();
+    
     public Serial()
     {
         super();
     }
-
+    
+    void close() throws Exception
+    {
+    	commPort.close();
+    }
     void connect ( String portName ) throws Exception
     {
         CommPortIdentifier portIdentifier = CommPortIdentifier.getPortIdentifier(portName);
@@ -34,7 +41,7 @@ public class Serial
         }
         else
         {
-            CommPort commPort = portIdentifier.open(this.getClass().getName(),2000);
+             commPort = portIdentifier.open(this.getClass().getName(),2000);
 
             if ( commPort instanceof SerialPort )
             {
@@ -66,8 +73,8 @@ public class Serial
     public static class SerialReader implements SerialPortEventListener 
     {
         private InputStream in;
-        private byte[] buffer = new byte[1024];
-        String buffer_string;
+        private byte[] buffer = new byte[10024];
+        
         public SerialReader ( InputStream in )
         {
             this.in = in;
@@ -87,7 +94,12 @@ public class Serial
                     buffer[len++] = (byte) data;
                 }
                 //System.out.print(new String(buffer,0,len));
-                buffer_string = new String(buffer,0,len);
+                //buffer_string = new String(buffer,0,len);
+                String btr = new String(buffer, 0, len);
+                btr.trim();
+                System.out.print(btr);
+                buffer_string += btr;
+                System.out.println("|"+buffer_string);
             }
             catch ( IOException e )
             {
@@ -127,22 +139,19 @@ public class Serial
     }*/
 
    public String getSensor(){
-       try
-       {                
-               this.out.write("yes".getBytes());              
+       try{                
+           this.out.write("yes".getBytes());              
        }
-       catch ( IOException e )
-       {
+       catch ( IOException e ){
            e.printStackTrace();
        }  
        try {
-        Thread.sleep(3000);
-    } catch (InterruptedException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
-    }
-       return (input.buffer_string).trim();
-
+    	   Thread.sleep(3);
+       } catch (InterruptedException e) {
+    	   // TODO Auto-generated catch block
+    	   e.printStackTrace();
+       }
+       return ("").trim();
    }
 
     public static void main ( String[] args )
@@ -152,9 +161,11 @@ public class Serial
         {
             test = new Serial();
             test.connect("COM5");
-            System.out.println(test.getSensor());
-            System.out.println(test.getSensor());
-            System.out.println(test.getSensor());
+            buffer_string="-";
+           // buffer_string.trim();
+            test.getSensor();
+            System.out.println("|"+buffer_string+"|");
+            test.close();
         }
         catch ( Exception e )
         {

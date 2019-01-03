@@ -34,6 +34,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/cs76334/eclipse-workspace/rxtx-2.2.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
